@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <OutputPath>..\DevelopBin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>..\DevelopObj\$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Auditing\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,44 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: EntityFramework.Toolkit.IWritableRepository
+// Assembly: EntityFramework.Toolkit.Core, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null
+// MVID: 83363AEA-5F39-4A80-AB2C-46D90A9D56DD
+// Assembly location: C:\13\EntityFramework.Toolkit.Core.dll
+
+using System;
+using System.Threading.Tasks;
+
+namespace EntityFramework.Toolkit
+{
+  public interface IWritableRepository : IRepository, IDisposable
+  {
+    /// <summary>
+    ///     Saves all changes made in this context to the underlying database.
+    /// </summary>
+    /// <returns>
+    ///     The set of changes written to the underlying database. This can include
+    ///     state entries for entities and/or relationships.
+    /// </returns>
+    /// <exception cref="T:System.Data.Entity.Infrastructure.DbUpdateException">
+    ///     An error occurred sending updates to the database.
+    /// </exception>
+    /// <exception cref="T:System.Data.Entity.Infrastructure.DbUpdateConcurrencyException">
+    ///     A database command did not affect the expected number of rows. This usually indicates an optimistic
+    ///     concurrency violation; that is, a row has been changed in the database since it was queried.
+    /// </exception>
+    /// <exception cref="T:System.Data.Entity.Validation.DbEntityValidationException">
+    ///     The save was aborted because validation of entity property values failed.
+    /// </exception>
+    /// <exception cref="T:System.NotSupportedException">
+    ///     An attempt was made to use unsupported behavior such as executing multiple asynchronous commands concurrently
+    ///     on the same context instance.
+    /// </exception>
+    /// <exception cref="T:System.ObjectDisposedException">The context or connection have been disposed.</exception>
+    /// <exception cref="T:System.InvalidOperationException">
+    ///     Some error occurred attempting to process entities in the context either before or after sending commands
+    ///     to the database.
+    /// </exception>
+    ChangeSet Save();
+
+    Task<ChangeSet> SaveAsync();
+  }
+}
